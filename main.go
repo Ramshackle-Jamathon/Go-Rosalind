@@ -11,4 +11,5 @@ func main() {
 	problems.REVC()
 	problems.FIB()
 	problems.GC()
+	problems.HAMM()
 }
