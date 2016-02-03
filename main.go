@@ -12,4 +12,7 @@ func main() {
 	problems.FIB()
 	problems.GC()
 	problems.HAMM()
+	problems.IPRB()
+	problems.PROT()
+	problems.SUBS()
 }

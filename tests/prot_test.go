@@ -6,13 +6,13 @@ import (
 )
 
 
-func BenchmarkIPRB(b *testing.B) {
-	    dat, err := ioutil.ReadFile("../inputs/iprb.in")
+func BenchmarkPROT(b *testing.B) {
+	    dat, err := ioutil.ReadFile("../inputs/prot.in")
 	    check(err)
 
 	    var r string
         for n := 0; n < b.N; n++ {
-            r = problems.SolutionIPRB(string(dat))
+            r = problems.SolutionPROT(string(dat))
         }
         result = r
 
