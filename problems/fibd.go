@@ -6,26 +6,26 @@ import (
     "strconv"
 )
 
-func FIB() {
+func FIBD() {
     dat, err := ioutil.ReadFile("inputs/fibd.in")
     check(err)
-    result := SolutionFIB(string(dat))
+    result := SolutionFIBD(string(dat))
     err = ioutil.WriteFile("inputs/fibd.out", []byte(result), 0644)
     check(err)
 }
 
-func SolutionFIB(s string) string{
+func SolutionFIBD(s string) string{
     input := strings.Split(s, " ")
     n, err := strconv.Atoi(input[0])
     check(err)
     k, err := strconv.Atoi(input[1])
     check(err)
-    return strconv.Itoa(calcRabbits(n, k))
+    return strconv.Itoa(calcMortalRabbits(n, k))
 }
 
-func calcRabbits(n int, k int) int{
+func calcMortalRabbits(n int, m int) int{
     if (n<=2){
         return 1
     }
-    return calcRabbits(n-1, k) + (k * calcRabbits(n-2, k))
+    return calcMortalRabbits(n-1, 1) + (1 * calcMortalRabbits(n-2, 1))
 }

@@ -15,4 +15,6 @@ func main() {
 	problems.IPRB()
 	problems.PROT()
 	problems.SUBS()
+	problems.CONS()
+	problems.FIBD()
 }
