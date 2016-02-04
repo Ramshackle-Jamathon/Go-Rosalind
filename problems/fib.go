@@ -7,10 +7,10 @@ import (
 )
 
 func FIB() {
-    dat, err := ioutil.ReadFile("inputs/fibd.in")
+    dat, err := ioutil.ReadFile("inputs/fib.in")
     check(err)
     result := SolutionFIB(string(dat))
-    err = ioutil.WriteFile("inputs/fibd.out", []byte(result), 0644)
+    err = ioutil.WriteFile("inputs/fib.out", []byte(result), 0644)
     check(err)
 }
 

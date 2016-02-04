@@ -17,4 +17,7 @@ func main() {
 	problems.SUBS()
 	problems.CONS()
 	problems.FIBD()
+	problems.GRPH()
+	problems.IEV()
+	problems.LCSM()
 }

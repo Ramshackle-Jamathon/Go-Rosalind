@@ -4,6 +4,7 @@ import (
     "io/ioutil"
     "strings"
     "strconv"
+    "math/big"
 )
 
 func FIBD() {
@@ -18,14 +19,29 @@ func SolutionFIBD(s string) string{
     input := strings.Split(s, " ")
     n, err := strconv.Atoi(input[0])
     check(err)
-    k, err := strconv.Atoi(input[1])
+    m, err := strconv.Atoi(input[1])
     check(err)
-    return strconv.Itoa(calcMortalRabbits(n, k))
+    return calcMortalRabbits(n, m).String()
+}
+func calcMortalRabbits(n, m int) *big.Int {
+    r := make([]*big.Int, 0, n)
+    r = append(r, big.NewInt(1), big.NewInt(1)) 
+    for i := 2; i < n; i++ {
+        temp := big.NewInt(0)
+        if i < m {
+            temp.Add(r[i-1], r[i-2])
+            r = append(r,temp) 
+        } else if i == m || i == m+1 {
+            temp.Add(r[i-1], r[i-2])
+            temp.Sub(temp, big.NewInt(1))
+            r = append(r,temp) 
+        } else {
+            temp.Add(r[i-1], r[i-2])
+            temp.Sub(temp, r[i-m-1])
+            r = append(r,temp) 
+        }
+    }
+    return r[n-1]
 }
 
-func calcMortalRabbits(n int, m int) int{
-    if (n<=2){
-        return 1
-    }
-    return calcMortalRabbits(n-1, 1) + (1 * calcMortalRabbits(n-2, 1))
-}
+
