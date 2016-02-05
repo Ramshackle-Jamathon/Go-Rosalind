@@ -3,7 +3,6 @@ package problems
 import (
     "io/ioutil"
     "math/big"
-    "fmt"
 )
 
 func MRNA() {
@@ -21,14 +20,10 @@ func SolutionMRNA(protein string) string{
 func inferRna(proteins string) *big.Int {
 	var posRNA = big.NewInt(1)
 	reverseProteinMap := reverseMap(proteinMap)
-	posRNA.Mul(posRNA, big.NewInt(int64(len(reverseProteinMap["Stop"]))))
 	for _, protein := range proteins{
-		fmt.Println(posRNA)
-		posRNA = posRNA.Mod(posRNA.Mul(posRNA, big.NewInt(int64(len(reverseProteinMap[string(protein)])))), big.NewInt(1000000))
+		posRNA.Mul(posRNA, big.NewInt(int64(len(reverseProteinMap[string(protein)]))))
 	}
-	fmt.Println("nice")
-	fmt.Println(len(reverseProteinMap["Stop"]))
-	//Stop Codon
-	fmt.Println(posRNA)
+	posRNA.Mul(posRNA, big.NewInt(int64(len(reverseProteinMap["Stop"]))))
+	posRNA.Mod(posRNA, big.NewInt(1000000))
     return posRNA
 }
