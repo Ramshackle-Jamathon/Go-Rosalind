@@ -19,5 +19,7 @@ func main() {
 	problems.FIBD()
 	problems.GRPH()
 	problems.IEV()
-	problems.LCSM()
+	//problems.LCSM()
+	problems.LIA()
+	problems.MRNA()
 }

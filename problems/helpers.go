@@ -13,6 +13,32 @@ func check(e error) {
     }
 }
 
+
+func binomial(n, k float64) float64{
+	if k > n - k {
+		k = n - k
+	}
+	accum := 1.0
+	for i := 1.0; i < k + 1.0; i++{
+		accum = accum * (n - (k - i))
+		accum = accum / i
+	}
+	return accum
+}
+/*
+handles duplicates like a champ
+*/
+func reverseMap(m map[string]string) map[string][]string {
+    n := make(map[string][]string)
+    for k, v := range m {
+    	if val, ok := n[v]; ok {
+    		n[v] = append(val, k)
+    	} else {
+        	n[v] = []string{k}
+    	}
+    }
+    return n
+}
 /*
 RNA -> PROTEIN ENCODING MAP
 */
