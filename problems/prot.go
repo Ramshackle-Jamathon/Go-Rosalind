@@ -32,5 +32,5 @@ func getProtein(rna string) string{
             res = ""
         }
     }
-    return protein
+    return ""
 }

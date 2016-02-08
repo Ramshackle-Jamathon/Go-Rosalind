@@ -6,13 +6,13 @@ import (
 )
 
 
-func BenchmarkFIB(b *testing.B) {
-	    dat, err := ioutil.ReadFile("../inputs/fib.in")
+func BenchmarkPERM(b *testing.B) {
+	    dat, err := ioutil.ReadFile("../inputs/perm.in")
 	    check(err)
 
 	    var r string
         for n := 0; n < b.N; n++ {
-            r = problems.SolutionFIB(string(dat))
+            r = problems.SolutionPERM(string(dat))
         }
         result = r
 }

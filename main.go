@@ -22,4 +22,6 @@ func main() {
 	//problems.LCSM()
 	problems.LIA()
 	problems.MRNA()
+	problems.ORF()
+	problems.PERM()
 }
