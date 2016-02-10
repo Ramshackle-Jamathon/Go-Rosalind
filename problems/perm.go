@@ -22,8 +22,6 @@ func SolutionPERM(s string) string{
     for i := 1; i <= n; i++ {
         inputs[i-1] = i
     }
-
-
     result := ""
     count := 0
     for perm := range GeneratePermutations(inputs) {
@@ -65,50 +63,39 @@ func permutate(c chan []int, inputs []int){
         inputs[i] = tmp
         output := make([]int, len(inputs))
         copy(output, inputs)
-        c <- output
+        c <- inputs
         for i = 1; p[i] == 0; i++{
             p[i] = i
         }
     }
 }
 /*
- The Countdown QuickPerm Algorithm:
+package main
 
-   let a[] represent an arbitrary list of objects to permute
-   let N equal the length of a[]
-   create an integer array p[] of size N+1 to control the iteration     
-   initialize p[0] to 0, p[1] to 1, p[2] to 2, ..., p[N] to N
-   initialize index variable i to 1
-   while (i < N) do {
-      decrement p[i] by 1
-      if i is odd, then let j = p[i] otherwise let j = 0
-      swap(a[j], a[i])
-      let i = 1
-      while (p[i] is equal to 0) do {
-         let p[i] = i
-         increment i by 1
-      } // end while (p[i] is equal to 0)
-   } // end while (i < N)
+import "fmt"
 
+func nextPerm(p []int) {
+    for i := len(p) - 1; i >= 0; i-- {
+        if i == 0 || p[i] < len(p)-i-1 {
+            p[i]++
+            return
+        }
+        p[i] = 0
+    }
+}
 
+func getPerm(orig, p []int) []int {
+    result := append([]int{}, orig...)
+    for i, v := range p {
+        result[i], result[i+v] = result[i+v], result[i]
+    }
+    return result
+}
 
-a = ['a', 'b', 'c', 'd']
-
-N = len(a)
-p = range(0, N + 1)
-i = 1
-print a 
-while i < N:
-    p[i] -= 1
-    if i % 2 == 1:
-        j = p[i]
-    else:
-        j = 0
-    a[j], a[i] = a[i], a[j]
-    print a
-    i = 1
-    while p[i] == 0:
-        p[i] = i
-        i += 1
-
-        */
+func main() {
+    orig := []int{1, 2, 3, 4, 5, 6, 7}
+    for p := make([]int, len(orig)); p[0] < len(p); nextPerm(p) {
+        fmt.Println(getPerm(orig, p))
+    }
+}
+*/
