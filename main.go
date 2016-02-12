@@ -24,4 +24,6 @@ func main() {
 	problems.MRNA()
 	problems.ORF()
 	problems.PERM()
+	problems.PRTM()
+	problems.REVP()
 }
