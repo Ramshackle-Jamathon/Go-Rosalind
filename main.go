@@ -26,4 +26,5 @@ func main() {
 	problems.PERM()
 	problems.PRTM()
 	problems.REVP()
+	problems.SPLC()
 }

@@ -15,7 +15,7 @@ func REVC() {
 
 func SolutionREVC(dna string) string{
 	runes := []rune(dna)
-    for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+    for i, j := 0, len(runes)-1; i <= j; i, j = i+1, j-1 {
         runes[i], runes[j] = getCompliment(runes[j]), getCompliment(runes[i])
     }
     return string(runes)

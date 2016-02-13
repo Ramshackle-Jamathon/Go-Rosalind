@@ -6,8 +6,8 @@ import (
 )
 
 
-func BenchmarkREVP(b *testing.B) {
-    f, err := os.Open("../inputs/REVP.in")
+func BenchmarkSPLC(b *testing.B) {
+    f, err := os.Open("../inputs/splc.in")
     check(err)
 
     fasta, err := problems.ReadAllFasta(f)
@@ -15,7 +15,7 @@ func BenchmarkREVP(b *testing.B) {
 
     var r string
     for n := 0; n < b.N; n++ {
-        r = problems.SolutionREVP(fasta)
+        r = problems.SolutionSPLC(fasta)
     }
     result = r
 }
