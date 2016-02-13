@@ -3,7 +3,6 @@ package problems
 import (
     "io/ioutil"
     "os"
-    "strconv"
 )
 
 func SPLC() {
