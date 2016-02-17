@@ -10,11 +10,18 @@ func SPLC() {
     check(err)
     fasta, err := ReadAllFasta(f)
     check(err)
-    result := SolutionSPLC(fasta[0])
+    result := SolutionSPLC(fasta)
     err = ioutil.WriteFile("inputs/splc.out", []byte(result), 0644)
     check(err)
 }
 
-func SolutionSPLC(fastaInput String) string{
-    return ""
+func SolutionSPLC(fastaInput []String) string{
+    dna := fastaInput[0].Data
+    for _, intron := range fastaInput[1:]{
+        for _,i := range getMotif(dna, intron.Data){
+            dna = dna[:i] + dna[i + len(intron.Data):]
+        }
+    }
+    result := SolutionPROT(SolutionRNA(dna))
+    return result
 }
