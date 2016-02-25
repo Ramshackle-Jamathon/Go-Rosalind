@@ -27,4 +27,6 @@ func main() {
 	problems.PRTM()
 	problems.REVP()
 	problems.SPLC()
+	problems.LEXF()
+	problems.LGIS()
 }

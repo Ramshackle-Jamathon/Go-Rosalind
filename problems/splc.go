@@ -19,7 +19,7 @@ func SolutionSPLC(fastaInput []String) string{
     dna := fastaInput[0].Data
     for _, intron := range fastaInput[1:]{
         for _,i := range getMotif(dna, intron.Data){
-            dna = dna[:i] + dna[i + len(intron.Data):]
+            dna = dna[:i-1] + dna[i -1 + len(intron.Data):]
         }
     }
     result := SolutionPROT(SolutionRNA(dna))
