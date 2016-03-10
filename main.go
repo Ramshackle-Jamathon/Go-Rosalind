@@ -29,4 +29,5 @@ func main() {
 	problems.SPLC()
 	problems.LEXF()
 	problems.LGIS()
+	problems.LONG()
 }
